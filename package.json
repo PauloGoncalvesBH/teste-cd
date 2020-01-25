@@ -1,6 +1,6 @@
 {
   "name": "teste-continuous-delivery",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "lint": "npx eslint src/ && npx eslint test/",
     "lint:fix": "npx eslint --fix src/ && npx eslint --fix test/",
@@ -10,7 +10,8 @@
     "test": "npm run test:unit && npm run test:e2e",
     "prettify": "prettier --write **/*.js **/*.md package.json sampleApp/**/* --print-width 120",
     "commit": "git-cz",
-    "release": "standard-version -t"
+    "bump-version": "standard-version -t",
+    "release": "git push --follow-tags origin stash-falso && npm publish"
   },
   "description": "Write robust and flakiness free tests with Protractor",
   "main": "index.js",

@@ -29,11 +29,10 @@ jobs:
       run: npm run test:e2e
     - name: Create release
       run: |
-        git config --local user.email paulorochag@hotmail.com
-        git config --local user.name "Paulo Gonçalves"
+        git config --global user.email testeg@hotmail.com
+        git config --global user.name "Bot"
         npm run release
     - name: Publish on NPM
       run: npm publish
       env:
-        NODE_AUTH_TOKEN: 123123
-      #  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
