@@ -1,0 +1,36 @@
+name: Publish protractor-helper on NPM
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Project checkout
+      uses: actions/checkout@v1
+    - name: Node.js Setup 
+      uses: actions/setup-node@v1.1.0
+      with:
+        node-version: '12.x'
+        registry-url: 'https://registry.npmjs.org'
+    - name: Installation of dependencies
+      run: npm install
+    - name: Lint
+      run: npm run lint
+    - name: Unit tests
+      run: npm run test:unit
+    - name: E2E tests
+      run: npm run test:e2e
+    - name: Create release
+      run: npm run release
+    - name: Publish on NPM
+      run: npm publish
+        env:
+          NODE_AUTH_TOKEN: 123123
+      #  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
