@@ -1,6 +1,6 @@
 {
-  "name": "protractor-helper",
-  "version": "4.0.12",
+  "name": "teste-continuous-delivery",
+  "version": "0.0.0-development",
   "scripts": {
     "lint": "npx eslint src/ && npx eslint test/",
     "lint:fix": "npx eslint --fix src/ && npx eslint --fix test/",
@@ -8,7 +8,8 @@
     "test:e2e": "npm run webdriver-update && protractor test/e2e/protractor.conf.js",
     "test:unit": "jasmine test/spec/*.spec.js",
     "test": "npm run test:unit && npm run test:e2e",
-    "prettify": "prettier --write **/*.js **/*.md package.json sampleApp/**/* --print-width 120"
+    "prettify": "prettier --write **/*.js **/*.md package.json sampleApp/**/* --print-width 120",
+    "semantic-release": "semantic-release"
   },
   "description": "Write robust and flakiness free tests with Protractor",
   "main": "index.js",
@@ -19,12 +20,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wlsf82/protractor-helper"
+    "url": "https://github.com/PauloGoncalvesBH/teste-cd"
   },
-  "author": "Walmyr Filho <wlsf82@gmail.com> (http://walmyr-filho.com)",
-  "contributors": [
-    "Paulo Gonçalves <paulorochag@hotmail.com> (https://www.linkedin.com/in/paulo-goncalves)"
-  ],
+  "author": "Paulo Gonçalves <paulorochag@hotmail.com> (https://www.linkedin.com/in/paulo-goncalves)",
   "files": [
     "src"
   ],
@@ -33,9 +31,10 @@
     "protractor": ">= 5.0.0 < 6"
   },
   "devDependencies": {
-    "eslint": "^6.6.0",
+    "eslint": "^6.8.0",
     "jasmine": "^3.4.0",
-    "prettier": "1.15.2",
-    "protractor": "^5.4.2"
+    "prettier": "^1.19.1",
+    "protractor": "^5.4.2",
+    "semantic-release": "^16.0.3"
   }
 }
