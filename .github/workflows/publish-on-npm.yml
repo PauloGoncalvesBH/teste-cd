@@ -31,7 +31,7 @@ jobs:
       run: |
         git config --global user.email testeg@hotmail.com
         git config --global user.name "Bot"
-        npm run release
+        npm run bump-version
     - name: Publish on NPM
       run: npm publish
       env:
